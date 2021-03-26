@@ -59,8 +59,8 @@ void main() {
     
     uv *= .25;
     
-   float l = length(uv);
-   float f = Circle(length(uv),0.288);
+    float l = length(uv);
+    float f = Circle(length(uv),0.288);
 	vec3 color = expand(uv);
     
 

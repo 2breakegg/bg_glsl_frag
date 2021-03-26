@@ -13,6 +13,7 @@ precision mediump float;
 uniform vec2 u_resolution;
 uniform vec2 u_mouse;
 uniform float u_time;
+uniform vec2 u_trails[10];
 
 float draw_triangle(vec3 pos1, vec3 pos2, vec3 pos3, vec2 uv) {
     vec3 pos = vec3(uv,0.);
@@ -50,6 +51,17 @@ void main() {
     points += point(uv, vec2(-0.540,-0.640));
     points += point(uv, vec2(0.280,-0.500));
     points += point(uv, vec2(-0.160,-0.060));
+    
+    // points += point(st, (u_mouse/u_resolution.xy* u_resolution.xy/u_resolution.yy));
+    
+    points += point(st*2., (u_trails[0]/u_resolution.xy* u_resolution.xy/u_resolution.yy)*2.*2.);
+    points += point(st*2.2, (u_trails[1]/u_resolution.xy* u_resolution.xy/u_resolution.yy)*2.*2.2);
+    points += point(st*2.4, (u_trails[2]/u_resolution.xy* u_resolution.xy/u_resolution.yy)*2.*2.4);
+    points += point(st*2.6, (u_trails[3]/u_resolution.xy* u_resolution.xy/u_resolution.yy)*2.*2.6);
+    points += point(st*2.8, (u_trails[4]/u_resolution.xy* u_resolution.xy/u_resolution.yy)*2.*2.8);
+    points += point(st*3.0, (u_trails[5]/u_resolution.xy* u_resolution.xy/u_resolution.yy)*2.*3.0);
+    points += point(st*3.2, (u_trails[6]/u_resolution.xy* u_resolution.xy/u_resolution.yy)*2.*3.2);
+    points += point(st*3.4, (u_trails[7]/u_resolution.xy* u_resolution.xy/u_resolution.yy)*2.*3.4);
     
     f *= points+0.1;
 
